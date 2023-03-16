@@ -1,0 +1,58 @@
+body {
+    height: 97.7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient( to right bottom, #c93737 , #cccb30);
+}
+b {
+    text-decoration: underline;
+    color: blue;
+}
+#btn {
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+#rock, #paper, #scissors {
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 15px;
+    color: rgb(36, 33, 33);
+    background-image: linear-gradient(to right bottom, rgb(0 115 234), rgb(0 234 218));
+}
+.score {
+  width: 20em;
+  margin: auto;
+  border: 1px solid rgb(1, 1, 20);
+}
+.score h2 {
+  border-bottom: 1px solid rgb(1, 1, 20);
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+  
+.score table {
+   margin: 10px auto;
+    width: 100%;
+    border-collapse: collapse;
+    height: 200px;
+}
+.score th, .score td {
+    text-align: center;
+    height: 40px;
+}
+.score td {
+    font-size: 3em;
+    padding: 0 20px;
+}
+#message {
+    margin-top: 20px;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" type="text/css" href="./rockpaperscissor.css">
+</head>
+<body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <p>Select one from Rock, Paper, Scissors and try to beat the computer if u can!</p>
+    <p><b>Note: </b><b>Rock</b> breaks <b>Scissors</b>, <b>Scissors</b> cut <b>Paper</b> , <b>Paper</b> covers <b>Rock</b></p>
+    <div class="score" id="score">
+        <h2>Scoreboard</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td id="humanScore">0</td>
+              <td id="computerScore">0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>You</th>
+              <th>Computer</th>
+            </tr>
+          </tfoot>
+        </table>
+    </div>
+    <h2>Choose wisely!</h2>
+    <div id="btn" class="btn">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    </div>
+    <div class="message" id="message">
+
+    </div>
+    <script>
+         var humanScore = 0;
+         var computerScore = 0;
+         document.getElementById("rock").onclick = playRock;
+         document.getElementById("paper").onclick = playPaper;
+         document.getElementById("scissors").onclick = playScissors;
+         function playRock() {
+          play ("rock");
+         }
+         function  playPaper() {
+          play("paper");
+         }
+         function playScissors() {
+          play("scissors");
+         }
+         function play(humanPlay) {
+          computerPlay = getComputerplay();
+          document.getElementById("message").innerHTML = "<p>You Played <strong>" + humanPlay + "</strong>. The computer played <strong>" + computerPlay + "</strong>.</p>";
+          if (humanPlay == "rock") {
+            if (computerPlay == "rock") {
+              document.getElementById("message").innerHTML += "<p>You tied :|</p>";
+            }
+            else if (computerPlay == "paper") {
+              document.getElementById("message").innerHTML += "<p>You lose :( </p>";
+              computerScore ++;
+            }
+            else if (computerPlay == "scissors") {
+              document.getElementById("message").innerHTML += "<p>You win :) </p>";
+              humanScore ++;
+            }
+          }
+          else if (humanPlay == "paper") {
+            if (computerPlay == "paper") {
+              document.getElementById("message").innerHTML += "<p>You tied :| </p>";
+            }
+            else if (computerPlay == "scissors") {
+              document.getElementById("message").innerHTML += "<p>You lose :( </p>";
+              computerScore ++;
+            }
+            else if (computerPlay == "rock") {
+              document.getElementById("message").innerHTML += "<p>You win :) </p>";
+              humanScore ++;
+            }
+          }
+          else if (humanPlay == "scissors") {
+            if (computerPlay == "scissors") {
+              document.getElementById("message").innerHTML += "<p>You tied :| </p>";
+            }
+            else if (computerPlay == "rock") {
+              document.getElementById("message").innerHTML += "<p>You lose :( </p>";
+              computerScore ++;
+            }
+            else if (computerPlay == "paper") {
+              document.getElementById("message").innerHTML += "<p>You win :) </p>";
+              humanScore ++;
+            }
+          }
+          document.getElementById("humanScore").innerHTML = humanScore;
+          document.getElementById("computerScore").innerHTML = computerScore;
+         }
+         function getComputerplay() {
+          var plays = ["rock", "paper", "scissors"];
+          var play = plays[Math.floor(Math.random() * plays.length)];
+          return play;
+         }
+
+    </script>
+</body>
+</html>
